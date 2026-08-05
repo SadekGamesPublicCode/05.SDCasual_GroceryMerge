@@ -15,7 +15,6 @@ public class WinSC : MonoBehaviour
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
     }
 
-    public void OnGameExit() { Application.Quit(); }
     public void OnHome() => genCtr.OnLoadHome();
     public void OnNextGame()
     {

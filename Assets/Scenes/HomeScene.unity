@@ -15450,7 +15450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6619084846829391783, guid: 71687e00822691e4f99ef6a3ed6d31ee, type: 3}
       propertyPath: m_Text
-      value: ARCADE INFINITE
+      value: ENDLESS MERGE
       objectReference: {fileID: 0}
     - target: {fileID: 6619084846829391783, guid: 71687e00822691e4f99ef6a3ed6d31ee, type: 3}
       propertyPath: m_Color.b

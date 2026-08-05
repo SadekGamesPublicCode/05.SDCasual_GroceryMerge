@@ -143,20 +143,10 @@ public class DataSC : MonoBehaviour
         PlayerPrefs.SetInt("CurAblility", abilityOder);
         pAbility = PlayerPrefs.GetInt("CurAblility");
     }
-    //public void UpdateWeapon(int weaponOder)
-    //{
-    //    PlayerPrefs.SetInt("CurWeaponID", weaponOder);
-    //    pWeapon = PlayerPrefs.GetInt("CurWeaponID");
-    //}
     public void UpdatePatrolDailyReward(string lastPatrolDaily)
     {
         PlayerPrefs.SetString("LastPatrolDailyTime", lastPatrolDaily);
         pLastDailyClaim = PlayerPrefs.GetString("LastPatrolDailyTime");
-    }
-    public void UpdatePatrolMonthlyReward(string lastPatrolMonth)
-    {
-        PlayerPrefs.SetString("LastPatrolMonthlyTime", lastPatrolMonth);
-        pLastDailyClaim = PlayerPrefs.GetString("LastPatrolMonthlyTime");
     }
     public void UpdateAllowClaimDaily(int state)
     {

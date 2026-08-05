@@ -47,7 +47,11 @@ public class ObjectSC : MonoBehaviour
     }
     internal void AddScoring()
     {
-        if (gameMode == 2) arcadeCtrl.IncreaseScore(selfScore);
+        if (gameMode == 2)
+        {
+            arcadeCtrl.IncreaseScore(selfScore);
+            arcadeCtrl.OnStartCountStreak();
+        }
         else if (gameMode == 3) { } //Add score Challenge
     }
     internal void CheckLoose()

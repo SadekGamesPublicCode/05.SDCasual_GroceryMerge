@@ -13,11 +13,14 @@ public class GenMNSC : Singleton<GenMNSC>
     [HideInInspector] ChallengeSC challengeCtr;
     [HideInInspector] HomeSC menuCtr;
     [HideInInspector] AdsMN adsMN;
-    //[HideInInspector] AdsMN adsCtr;
+
+    [SerializeField] SoundSC sfxCtr;
+    [SerializeField] MainThemeSC themeCtr;
+
     public int deviceType;
     public int curGameMode;
     public string today;
-    private int interAdsCount, rewardAdsCount;
+    private int interAdsCount;
     private int targetInterAdsCount;
     private void Awake() => DontDestroyOnLoad(this);
     void Start()
@@ -31,7 +34,6 @@ public class GenMNSC : Singleton<GenMNSC>
         today = (DateTime.Today.Day).ToString();
 
         interAdsCount = 0;
-        rewardAdsCount = 0;
         targetInterAdsCount = 3;
 
         Invoke(nameof(AssistAdsMn), 10f);
@@ -69,7 +71,6 @@ public class GenMNSC : Singleton<GenMNSC>
         interAdsCount++;
         if (interAdsCount >= targetInterAdsCount)
         {
-            print("in call loadHOme");
             adsMN.ShowAds(1);
             OnToHome();
             interAdsCount = 0;
