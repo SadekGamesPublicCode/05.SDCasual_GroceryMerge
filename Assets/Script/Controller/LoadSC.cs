@@ -7,28 +7,57 @@ using UnityEngine.SceneManagement;
 public class LoadSC : MonoBehaviour
 {
     [SerializeField] GenMNSC genCtr;
-    [SerializeField] Text curVersion;
-    [SerializeField] GameObject logoIMG;
+    [SerializeField] Text versionTxt, tipTxt;
+    [SerializeField] Slider loadSlide;
     private float loadSpd2;
-    public float targetAlpha = 1f;
+    private int curLoadCOunt;
     void Start()
     {
-        curVersion.text = Application.version;
-        logoIMG.GetComponent<Image>().fillAmount = 0;
+        versionTxt.text = Application.version;
+        curLoadCOunt = 0;
+        loadSlide.maxValue = 1;
+        loadSlide.minValue = loadSlide.value = 0;
+        loadSpd2 = 0;
         StartCoroutine(RunLoadGameLogo());
+        InvokeRepeating(nameof(OnUpdateTips), 0f, 3f);
     }
 
     IEnumerator RunLoadGameLogo()
     {
         loadSpd2 = Random.Range(0.01f, 0.5f);
-        if (logoIMG.GetComponent<Image>().fillAmount >= 1)
+        loadSlide.value += loadSpd2;
+        if (loadSlide.value >= 1)
         {
-            logoIMG.gameObject.SetActive(true);
             StopCoroutine(RunLoadGameLogo());
-            genCtr.OnToHome();
+            SceneManager.LoadScene("HomeScene");
         }
-        yield return new WaitForSeconds(0.1f);
-        logoIMG.GetComponent<Image>().fillAmount += loadSpd2 * Time.deltaTime * 10;
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine(RunLoadGameLogo());
+    }
+    void OnUpdateTips()
+    {
+        curLoadCOunt++;
+        switch (curLoadCOunt)
+        {
+            case 0:
+                tipTxt.text = "Beware the redline";
+                break;
+            case 1:
+                tipTxt.text = "Same planet - matching!!";
+                break;
+            case 2:
+                tipTxt.text = "Don't stack too much";
+                break;
+            case 3:
+                tipTxt.text = "Careful yuor drops";
+                break;
+            case 4:
+                tipTxt.text = "Bring power ups!!";
+                break;
+            case 5:
+                tipTxt.text = "YOLO!!!";
+                curLoadCOunt = 0;
+                break;
+        }
     }
 }

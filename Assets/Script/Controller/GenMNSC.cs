@@ -22,6 +22,7 @@ public class GenMNSC : Singleton<GenMNSC>
     public string today;
     private int interAdsCount;
     private int targetInterAdsCount;
+    public bool isEndGame;
     private void Awake() => DontDestroyOnLoad(this);
     void Start()
     {
@@ -50,10 +51,12 @@ public class GenMNSC : Singleton<GenMNSC>
                 arcadeCtr = GameObject.Find("ArcadeMN").GetComponent<ArcadeSC>();
                 arcadeCtr.deviceMode = deviceType;
                 curGameMode = 2;
+                isEndGame = false;
                 break;
             case 3:
                 challengeCtr = GameObject.Find("ChallengeMN").GetComponent<ChallengeSC>();
                 curGameMode = 3;
+                isEndGame = false;
                 break;
         }
     }

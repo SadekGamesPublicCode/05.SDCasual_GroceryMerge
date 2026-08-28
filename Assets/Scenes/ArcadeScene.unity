@@ -480,24 +480,46 @@ MonoBehaviour:
   pScoreTxt: {fileID: 271435343}
   pLevelTxt: {fileID: 1594064409}
   previewPlanet:
-  - {fileID: 21300000, guid: 32f5899b7b063a643a876adbb334826d, type: 3}
-  - {fileID: 21300000, guid: 1b79d0539656185468c18a28333cbd28, type: 3}
-  - {fileID: 21300000, guid: 6d8f4115180097443bac43db59452502, type: 3}
-  - {fileID: 21300000, guid: 2fcdd8f5f0d9f7d49a1738433ea38f4a, type: 3}
-  - {fileID: 21300000, guid: 010382ea760aa0b448afcbcd497ba4a4, type: 3}
-  - {fileID: 21300000, guid: 78c40fd12dc353440a4fe2cfd35d7618, type: 3}
-  - {fileID: 21300000, guid: e389611ce10c9544dbd2aee114d80723, type: 3}
-  - {fileID: 21300000, guid: b28793f0c74e16f4fb91617c70547e75, type: 3}
-  - {fileID: 21300000, guid: 5eb4cb9e3e587f04494226ab7ec895d1, type: 3}
-  - {fileID: 21300000, guid: 6a3f264217af1ef4190c45b4dcffb637, type: 3}
-  - {fileID: 21300000, guid: 9d043d539fc88b946acaee1864bec170, type: 3}
-  - {fileID: 21300000, guid: decfdb3075d8b504590e311f4fcc4222, type: 3}
-  - {fileID: 21300000, guid: 5558df373774aa3448e5cbc79aeb24c0, type: 3}
-  - {fileID: 21300000, guid: d1c6940e0840d32489c29c83054f5d0f, type: 3}
-  - {fileID: 21300000, guid: 9c083445ac2b37f43a4f81f4aae5086a, type: 3}
-  - {fileID: 21300000, guid: 81b0a6ef047c6254da883a58c88da003, type: 3}
-  - {fileID: 21300000, guid: 7a66d11c05e05654facf7ce718a8514a, type: 3}
-  - {fileID: 21300000, guid: 308216fd287a70849a31ea943f0b762e, type: 3}
+  - {fileID: 21300000, guid: 316dedd1ebc795f4499ad54503e4ab99, type: 3}
+  - {fileID: 21300000, guid: 68d572c107372584180974110eca3ecb, type: 3}
+  - {fileID: 21300000, guid: 63d570afcb858184385a98eb91ce88d4, type: 3}
+  - {fileID: 21300000, guid: 8c58179181e1d7f4da6d798917bf89cc, type: 3}
+  - {fileID: 21300000, guid: 468e48eadc61a694d8241793bde9c59f, type: 3}
+  - {fileID: 21300000, guid: a9f3d8c810b829643a35584e6bb184fe, type: 3}
+  - {fileID: 21300000, guid: 10073af4c7c7baf4bab6317337caa824, type: 3}
+  - {fileID: 21300000, guid: 328de3265c189eb45a577502b8e6d6d2, type: 3}
+  - {fileID: 21300000, guid: 026d88abcf4e5a74b92f1e2285d7b952, type: 3}
+  - {fileID: 21300000, guid: e4ae8e5664be60a4c91bdb27b5b0e128, type: 3}
+  - {fileID: 21300000, guid: e158d903329f90e4eb4effbadc258550, type: 3}
+  - {fileID: 21300000, guid: 7eed03ad18e30494b8792c25fc5c754b, type: 3}
+  - {fileID: 21300000, guid: 6946fbf0e0a998b49b5cb0848e48cefa, type: 3}
+  - {fileID: 21300000, guid: ad0627c9d5af13142aa560c20167e640, type: 3}
+  - {fileID: 21300000, guid: 83f1475576d5bde40bf51d24fc08e8de, type: 3}
+  - {fileID: 21300000, guid: f84a19d9c4a90a6498f6c2d14920f73c, type: 3}
+  - {fileID: 21300000, guid: d35d148586fd02f40a0fb5a8b5427d83, type: 3}
+  - {fileID: 21300000, guid: 0fd355757422bd14ea8096b9b315bfff, type: 3}
+  - {fileID: 21300000, guid: 0661d00148a75734a99f595de859f598, type: 3}
+  - {fileID: 21300000, guid: 67494521e30d78d498cee352050f59ea, type: 3}
+  - {fileID: 21300000, guid: 1e2e110836698f24db039cacce2e3c56, type: 3}
+  - {fileID: 21300000, guid: 7c8b5ecd8ba781d4ba36593a9b4272ee, type: 3}
+  - {fileID: 21300000, guid: e92c49ec9bbd15342ba61b290b2ffdce, type: 3}
+  - {fileID: 21300000, guid: 15ad2c5142939af43950d774f560276c, type: 3}
+  - {fileID: 21300000, guid: cbed34a67a7e23041a7aa8d18e01e8e0, type: 3}
+  - {fileID: 21300000, guid: 2fd25132f52dd504d9f1e2189391a53e, type: 3}
+  - {fileID: 21300000, guid: 67076c020193ebd4f9bb7f84d45cf4dd, type: 3}
+  - {fileID: 21300000, guid: a719fdf0c7708084390f49b65b73e5a2, type: 3}
+  - {fileID: 21300000, guid: 3c400434f8045b94ca6662efbfb86f82, type: 3}
+  - {fileID: 21300000, guid: ebf06aef3843ff6458d5394e508eed2a, type: 3}
+  - {fileID: 21300000, guid: 96f85f80401318746aea913d39a619f3, type: 3}
+  - {fileID: 21300000, guid: edfe0e9b1283acd4eb0b25e6f25c80bc, type: 3}
+  - {fileID: 21300000, guid: 89b8d0c619a4ea5438553f0f29c210fd, type: 3}
+  - {fileID: 21300000, guid: 1461fca28cd48fc4f892bebe30f164de, type: 3}
+  - {fileID: 21300000, guid: 0de3a7920a3fd88448f26e6fc81987ae, type: 3}
+  - {fileID: 21300000, guid: d3827d149e313a84194f5c2071744b09, type: 3}
+  - {fileID: 21300000, guid: 865e5018b65db0e4bbf5cabbc3f88e99, type: 3}
+  - {fileID: 21300000, guid: 755e4480be108ee40a68707d2ba21c32, type: 3}
+  - {fileID: 21300000, guid: 0bc9a9e76596beb4d97799d681220fe3, type: 3}
+  - {fileID: 21300000, guid: ab0391b9a51dd324598bd3718bcab05f, type: 3}
   streakAnnoucePnl: {fileID: 55149061}
   deviceMode: 0
   gameMode: 0
@@ -962,9 +984,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 720, y: 1080}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
