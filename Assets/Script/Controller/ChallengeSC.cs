@@ -16,6 +16,9 @@ public class ChallengeSC : MonoBehaviour
     [SerializeField] GameObject streakAnnoucePnl, winPanel;
     [SerializeField] List<Sprite> planetSprites = new List<Sprite>();
     [HideInInspector] SoundSC sfxCtr;
+
+    [HideInInspector] List<GameObject> curItemsOnScreen = new List<GameObject>();
+
     public int deviceMode;
     private int objectiveID, targetAmountofObjective, curAmountObjective;
     private float challengeScore; //variable for win condition check
@@ -30,7 +33,6 @@ public class ChallengeSC : MonoBehaviour
         data = GameObject.Find("GenMN").GetComponent<DataSC>();
         genctr.AssistObjectPreload(3);
         sun = Instantiate(sun, new Vector3(0, 4, 0), Quaternion.identity);
-        SettingSun();
         curAmountObjective = 0;
         GenerateChallenge();
 
@@ -39,18 +41,12 @@ public class ChallengeSC : MonoBehaviour
         tempScoreTarget = 0;
         tempTimeRemain = 0;
     }
-    private void SettingSun()
-    {
-        sun.SetGameMode(3);
-        deviceMode = genctr.deviceType;
-        sun.SetDeviceType(deviceMode);
-    }
     private void GenerateChallenge()
     {
-        //DetermindChallenge();
+        DetermindChallenge();
         SelectReward();
         GenerateGameplay();
-        //OnAssistObjectiveName();
+        OnAssistObjectiveName();
     }
 
     public void SetPreviewImage(int imageOrder) => planetPrevieIMG.GetComponent<Image>().sprite = planetSprites[imageOrder];
@@ -158,51 +154,16 @@ public class ChallengeSC : MonoBehaviour
         genctr.OnShowPause();
         isPauseGameplay = true;
     }
-    //private void OnAssistObjectiveName()
-    //{
-    //    switch (objectiveID)
-    //    {
-    //        case 0:
-    //            targetPlanet = "OBJ_Planet 1(Clone)";
-    //            break;
-    //        case 1:
-    //            targetPlanet = "OBJ_Planet 2(Clone)";
-    //            break;
-    //        case 2:
-    //            targetPlanet = "OBJ_Planet 3(Clone)";
-    //            break;
-    //        case 3:
-    //            targetPlanet = "OBJ_Planet 4(Clone)";
-    //            break;
-    //        case 4:
-    //            targetPlanet = "OBJ_Planet 5(Clone)";
-    //            break;
-    //        case 5:
-    //            targetPlanet = "OBJ_Planet 6(Clone)";
-    //            break;
-    //        case 6:
-    //            targetPlanet = "OBJ_Planet 7(Clone)";
-    //            break;
-    //        case 7:
-    //            targetPlanet = "OBJ_Planet 8(Clone)";
-    //            break;
-    //        case 8:
-    //            targetPlanet = "OBJ_Planet 9(Clone)";
-    //            break;
-    //        case 9:
-    //            targetPlanet = "OBJ_Planet 10(Clone)";
-    //            break;
-    //        case 10:
-    //            targetPlanet = "OBJ_Planet 11(Clone)";
-    //            break;
-    //        case 11:
-    //            targetPlanet = "OBJ_Planet 12(Clone)";
-    //            break;
-    //        case 12:
-    //            targetPlanet = "OBJ_Planet 13(Clone)";
-    //            break;
-    //    }
-    //}
+    private void OnAssistObjectiveName()
+    {
+        if(objectiveID < 10)
+        {
+            targetPlanet = "OBJ0" + objectiveID + "(Clone)";
+        }else if(objectiveID >= 10)
+        {
+            targetPlanet = "OBJ" + objectiveID + "(Clone)";
+        }
+    }
     public void OnCompareTarget(string planetMerged)
     {
         if (planetMerged == targetPlanet)
@@ -223,5 +184,17 @@ public class ChallengeSC : MonoBehaviour
         tempScore = challengeScore + score;
         challengeScore = tempScore;
         pScoreChallenge.text = challengeScore.ToString();
+    }
+    public void OnAddCurItemOnScreen(GameObject a)
+    {
+        curItemsOnScreen.Add(a);
+    }
+    public void OnEraseCurItemOnScreen()
+    {
+        for (int i = 0; i < curItemsOnScreen.Count / 2; i++)
+        {
+            Destroy(curItemsOnScreen[i]);
+            curItemsOnScreen.Remove(curItemsOnScreen[i]);
+        }
     }
 }

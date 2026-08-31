@@ -60,8 +60,12 @@ public class ObjectSC : MonoBehaviour
         {
             if (gameObject.transform.position.y >= 2.5f)
             {
-                genCtr.isEndGame = true;
-                genCtr.OnShowLose();
+                if (genCtr.isEndGame == false)
+                {
+                    genCtr.isEndGame = true;
+                    genCtr.OnShowLose();
+
+                }
             }
         }
     }

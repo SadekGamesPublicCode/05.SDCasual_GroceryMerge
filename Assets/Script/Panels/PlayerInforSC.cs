@@ -8,14 +8,13 @@ public class PlayerInforSC : MonoBehaviour
     [HideInInspector] GenMNSC genCtr;
     [HideInInspector] DataSC data;
     [SerializeField] Text pNameTxt, pHighScoreTxt, pHighLvTxt, pTotalScoreTxt, pGemTxt;
-    private string deviceID, pName;
+    private string pName;
     public int pHighscore, pHighLv, pCurrency, pGem;
     // Start is called before the first frame update
     void Start()
     {
         genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
         data = GameObject.Find("GenMN").GetComponent<DataSC>();
-        deviceID = data.deviceID;
         GetPlayerData();
     }
     public void GetPlayerData()
@@ -51,4 +50,5 @@ public class PlayerInforSC : MonoBehaviour
     {
         genCtr.OnHideInfor();
     }
+    public void OnShowInfors() => genCtr.OnShowInfor();
 }

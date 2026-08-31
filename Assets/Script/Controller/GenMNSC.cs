@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GenMNSC : Singleton<GenMNSC>
 {
@@ -16,6 +17,7 @@ public class GenMNSC : Singleton<GenMNSC>
 
     [SerializeField] SoundSC sfxCtr;
     [SerializeField] MainThemeSC themeCtr;
+    [SerializeField] InputField inputNewName;
 
     public int deviceType;
     public int curGameMode;
@@ -134,12 +136,12 @@ public class GenMNSC : Singleton<GenMNSC>
         if(curGameMode == 2)
         {
             arcadeCtr.UpdatePlayerData();
-            //ToLoadRewardThenArcadeScene();
-            Invoke(nameof(OnLoadArcade), 1.5f);
+            OnLoadArcade();
         }
         else if(curGameMode == 3)
         {
             challengeCtr.OnUpdatePlayerData();
+            OnLoadChallenge();
         }
     }
     public void UpdateHmeUI()
@@ -159,6 +161,19 @@ public class GenMNSC : Singleton<GenMNSC>
         else if (interAdsCount < targetInterAdsCount)
         {
             OnLoadArcade();
+        }
+    }
+    public void OnCallbackShowAdsReward() => adsMN.ShowAds(2);
+    public void OnChangeName() => data.UpdatePName(inputNewName.text);
+
+    public void OnClearGameScreenToContinue()
+    {
+        if(curGameMode == 2)
+        {
+            arcadeCtr.OnEraseCurItemOnScreen();
+        }else if(curGameMode == 3)
+        {
+            challengeCtr.OnEraseCurItemOnScreen();
         }
     }
 }

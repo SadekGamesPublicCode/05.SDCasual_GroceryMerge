@@ -65,6 +65,7 @@ public class PatrolRewardSC : MonoBehaviour
                         rewardBtn[i].GetComponent<Button>().interactable = false;
                     }
 
+                    //Lock next one more day of oday claim button
                     for (int j = streakDaily + 1; j > rewardBtn.Count; j++)
                     {
                         rewardBtn[j].GetComponent<Button>().interactable = false;

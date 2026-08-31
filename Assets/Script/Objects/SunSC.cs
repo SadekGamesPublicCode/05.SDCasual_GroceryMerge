@@ -8,35 +8,35 @@ public class SunSC : MonoBehaviour
 {
     [HideInInspector] ArcadeSC arcadeCtr;
     [HideInInspector] ChallengeSC challengeCtr;
-    [HideInInspector] SceneMN sceneCtr;
+    [SerializeField] GenMNSC genCtr;
     [SerializeField] List<GameObject> planetList = new List<GameObject>();
-    private int deviceType, gameMode;
+    private int deviceType, gamemode;
     private float moveSpd = 5f;
     private int randPlanetToSpawn;
     private int curPlayerLevel;
     void Start()
     {
-        sceneCtr = GameObject.Find("OBJ_SceneControl").GetComponent<SceneMN>();
-    }
-    public void SetGameMode(int mode)
-    {
-        gameMode = mode;
-        SetMode();
+        genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>();
+        SetSun();
     }
     public void SetDeviceType(int type) => deviceType = type;
-    private void SetMode()
+    private void SetSun()
     {
-
-        if (gameMode == 2)
+        deviceType = genCtr.deviceType;
+        if (genCtr.curGameMode == 2)
         {
             arcadeCtr = GameObject.Find("ArcadeMN").GetComponent<ArcadeSC>();
             curPlayerLevel = arcadeCtr.arcadeLv;
+            gamemode = 2;
         }
-        else if (gameMode == 3) challengeCtr = GameObject.Find("ChallengeMN").GetComponent<ChallengeSC>();
+        else if (genCtr.curGameMode == 3)
+        {
+            challengeCtr = GameObject.Find("ChallengeMN").GetComponent<ChallengeSC>();
+            gamemode = 3;
+        }
         SelectNextPlanet();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(deviceType == 1)
@@ -57,7 +57,15 @@ public class SunSC : MonoBehaviour
             int randPlanet = randPlanetToSpawn;
             Vector3 curPos = transform.position;
             float tempY = curPos.y - 0.5f;
-            Instantiate(planetList[randPlanet], new Vector3(curPos.x, tempY, 0), Quaternion.identity);
+            GameObject spawnedPlanet = Instantiate(planetList[randPlanet], new Vector3(curPos.x, tempY, 0), Quaternion.identity) as GameObject;
+            if (gamemode == 2)
+            {
+                arcadeCtr.OnAddCurItemOnScreen(spawnedPlanet);
+            }
+            else if (gamemode == 3) 
+            {
+                challengeCtr.OnAddCurItemOnScreen(spawnedPlanet);
+            }
             SelectNextPlanet();
         }
     }
@@ -74,7 +82,15 @@ public class SunSC : MonoBehaviour
                     int randPlanet = randPlanetToSpawn;
                     Vector3 curPos = transform.position;
                     float tempY = curPos.y - 0.5f;
-                    Instantiate(planetList[randPlanet], new Vector3(curPos.x, tempY, 0), Quaternion.identity);
+                    GameObject spawnedPlanet = Instantiate(planetList[randPlanet], new Vector3(curPos.x, tempY, 0), Quaternion.identity) as GameObject;
+                    if (gamemode == 2)
+                    {
+                        arcadeCtr.OnAddCurItemOnScreen(spawnedPlanet);
+                    }
+                    else if (gamemode == 3)
+                    {
+                        challengeCtr.OnAddCurItemOnScreen(spawnedPlanet);
+                    }
                     SelectNextPlanet();
                 }
             }
@@ -131,27 +147,35 @@ public class SunSC : MonoBehaviour
             else if (gameObject.transform.position.x < -3) gameObject.transform.position = new Vector3(-3, 4, 0);
         }
     }
-
     private void SelectNextPlanet()
     {
-        if(curPlayerLevel <= 10)
+        if (gamemode == 2)
         {
-            randPlanetToSpawn = Random.Range(0, planetList.Count /2);
-            if (gameMode == 2) arcadeCtr.SetPreviewImage(randPlanetToSpawn);
-            else if (gameMode == 3) { }
+            if (curPlayerLevel <= 10)
+            {
+                randPlanetToSpawn = Random.Range(0, planetList.Count / 2);
+                arcadeCtr.SetPreviewImage(randPlanetToSpawn);
+              //  gameObject.GetComponent<SpriteRenderer>().sprite = normalApparance;
 
+            }
+            else if (curPlayerLevel > 10 && curPlayerLevel <= 30)
+            {
+                randPlanetToSpawn = Random.Range(0, planetList.Count - 2);
+                arcadeCtr.SetPreviewImage(randPlanetToSpawn);
+              //  gameObject.GetComponent<SpriteRenderer>().sprite = normalApparance;
+            }
+            else if (curPlayerLevel > 30)
+            {
+                randPlanetToSpawn = Random.Range(0, planetList.Count);
+                arcadeCtr.SetPreviewImage(randPlanetToSpawn);
+              //  gameObject.GetComponent<SpriteRenderer>().sprite = normalApparance;
+            }
         }
-        else if(curPlayerLevel> 10 && curPlayerLevel <= 30)
-        {
-            randPlanetToSpawn = Random.Range(0, planetList.Count - 2);
-            if (gameMode == 2) arcadeCtr.SetPreviewImage(randPlanetToSpawn);
-            else if (gameMode == 3) { }
-        }
-        else if(curPlayerLevel > 30)
+        else if (gamemode == 3)
         {
             randPlanetToSpawn = Random.Range(0, planetList.Count);
-            if (gameMode == 2) arcadeCtr.SetPreviewImage(randPlanetToSpawn);
-            else if (gameMode == 3) { }
+            challengeCtr.SetPreviewImage(randPlanetToSpawn);
+           // gameObject.GetComponent<SpriteRenderer>().sprite = normalApparance;
         }
     }
 }

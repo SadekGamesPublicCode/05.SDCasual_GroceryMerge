@@ -40,16 +40,16 @@ public class LoadSC : MonoBehaviour
         switch (curLoadCOunt)
         {
             case 0:
-                tipTxt.text = "Beware the redline";
+                tipTxt.text = "Don't stack groceries too high";
                 break;
             case 1:
-                tipTxt.text = "Same planet - matching!!";
+                tipTxt.text = "Same Itmes - Matching!!";
                 break;
             case 2:
-                tipTxt.text = "Don't stack too much";
+                tipTxt.text = "Use space wisely";
                 break;
             case 3:
-                tipTxt.text = "Careful yuor drops";
+                tipTxt.text = "Careful your drops";
                 break;
             case 4:
                 tipTxt.text = "Bring power ups!!";

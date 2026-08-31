@@ -105,7 +105,7 @@ public class AdsMN : MonoBehaviour
         Invoke(nameof(ShowBannerAds), 10f);
     }
 
-    public void ShowBannerAds() => StartCoroutine(WaitToShowBanner());
+    public void ShowBannerAds() => bannerAds.ShowAd();
 
     public void ShowAds(int adsID)
     {
@@ -120,43 +120,41 @@ public class AdsMN : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitToShowBanner()
-    {
-        yield return new WaitForSeconds(20);
-        bannerAds.ShowAd();
-    }
-
     #region AdInfo Rewarded Video
     void RewardedVideoOnLoadedEvent(LevelPlayAdInfo adInfo)
     {
         isRewardLoaded = true;
-        Debug.Log($"[LevelPlaySample] Received RewardedVideoOnLoadedEvent With AdInfo: {adInfo}");
+        print("Reward Ads Loaded");
+        //Debug.Log($"[LevelPlaySample] Received RewardedVideoOnLoadedEvent With AdInfo: {adInfo}");
     }
 
     void RewardedVideoOnAdLoadFailedEvent(LevelPlayAdError error)
     {
         isRewardLoaded = false;
-        Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdLoadFailedEvent With Error: {error}");
+        print("Reward Ads Loaded Fail");
+        //Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdLoadFailedEvent With Error: {error}");
     }
 
     void RewardedVideoOnAdDisplayedEvent(LevelPlayAdInfo adInfo)
     {
-        Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdDisplayedEvent With AdInfo: {adInfo}");
+        print("Reward Ads Showed");
+        //Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdDisplayedEvent With AdInfo: {adInfo}");
     }
 #pragma warning disable 0618
     void RewardedVideoOnAdDisplayedFailedEvent(LevelPlayAdInfo info, LevelPlayAdError error)
     {
-        Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdDisplayedFailedEvent With Error: {error}");
+        print("Reward Ads Show Fail");
+        //Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdDisplayedFailedEvent With Error: {error}");
     }
 #pragma warning restore 0618
     void RewardedVideoOnAdRewardedEvent(LevelPlayAdInfo adInfo, LevelPlayReward reward)
     {
-        Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdRewardedEvent With AdInfo: {adInfo} and Reward: {reward}");
+        //Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdRewardedEvent With AdInfo: {adInfo} and Reward: {reward}");
     }
 
     void RewardedVideoOnAdClickedEvent(LevelPlayAdInfo adInfo)
     {
-        Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdClickedEvent With AdInfo: {adInfo}");
+        //Debug.Log($"[LevelPlaySample] Received RewardedVideoOnAdClickedEvent With AdInfo: {adInfo}");
     }
 
     void RewardedVideoOnAdClosedEvent(LevelPlayAdInfo adInfo)

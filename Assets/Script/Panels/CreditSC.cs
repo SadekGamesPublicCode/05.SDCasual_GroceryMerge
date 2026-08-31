@@ -9,7 +9,7 @@ public class CreditSC : MonoBehaviour
     void Start() { genCtr = GameObject.Find("GenMN").GetComponent<GenMNSC>(); }
     void Update() { }
     public void OnCloseCredit() => genCtr.OnHideCredit();
-    public void ToPrivaciPolicy() { Application.OpenURL("https://sadekgame.wordpress.com/2024/10/17/dino-adventure-privacy-policy/"); }
+    public void ToPrivaciPolicy() { Application.OpenURL("https://sadekgame.wordpress.com/2026/06/04/privacy-policy-sdcasual-merge-grocery/"); }
     public void ToTermUse() { Application.OpenURL("https://sadekgame.wordpress.com/2026/08/02/termuse-merge-grocery/"); }
     public void ToFB() { Application.OpenURL("https://www.facebook.com/sadeksoftVn"); }
     public void ToIG() { Application.OpenURL("https://www.instagram.com/sdsoftvn/"); }

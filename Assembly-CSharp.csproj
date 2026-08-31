@@ -78,6 +78,7 @@
     <Compile Include="Assets\Script\Objects\GinSC.cs" />
     <Compile Include="Assets\Script\Panels\RatingSC.cs" />
     <Compile Include="Assets\Script\Objects\TunaSC.cs" />
+    <Compile Include="Assets\Script\Objects\PiggySC.cs" />
     <Compile Include="Assets\Script\Objects\CokeLargeSC.cs" />
     <Compile Include="Assets\Script\Background\MainThemeSC.cs" />
     <Compile Include="Assets\Script\Objects\FlooraserSC.cs" />

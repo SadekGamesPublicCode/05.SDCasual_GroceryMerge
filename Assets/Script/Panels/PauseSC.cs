@@ -21,7 +21,6 @@ public class PauseSC : Singleton<PauseSC>
         else if (challengeCtr != null) challengeCtr.isPauseGameplay = false;
     }
     public void OnHome() => genCtr.OnLoadHome();
-    public void OnQuit() => Application.Quit(0);
     public void AssistGameplay(int i)
     {
         if(i == 2) arcadeCtr = GameObject.Find("ArcadeMN").GetComponent<ArcadeSC>();

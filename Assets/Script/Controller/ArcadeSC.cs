@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,9 @@ public class ArcadeSC : MonoBehaviour
     [SerializeField] Image planetPrevieIMG;
     [SerializeField] Text pScoreTxt, pLevelTxt;
     [SerializeField] List<Sprite> previewPlanet = new List<Sprite>();
+
+    [HideInInspector] List<GameObject> curItemsOnScreen = new List<GameObject>();
+
     [SerializeField] GameObject streakAnnoucePnl;
     public int deviceMode, gameMode;
     public int  arcadeLv, baseTargetLv;
@@ -29,7 +33,6 @@ public class ArcadeSC : MonoBehaviour
         sun = Instantiate(sun, new Vector3(0, 4, 0), Quaternion.identity);
 
         GenerateGameplay();
-        SettingSun();
     }
 
     void Update() { }
@@ -37,11 +40,6 @@ public class ArcadeSC : MonoBehaviour
     public void SetDeviceMode(int mode)
     {
         deviceMode = mode;
-    }
-    private void SettingSun()
-    {
-        sun.SetGameMode(2);
-        sun.SetDeviceType(deviceMode);
     }
 
     public void SetPreviewImage(int imageOrder)
@@ -138,4 +136,19 @@ public class ArcadeSC : MonoBehaviour
 
     }
     #endregion
+
+    public void OnAddCurItemOnScreen (GameObject a)
+    {
+        curItemsOnScreen.Add(a);
+    }
+    public void OnEraseCurItemOnScreen()
+    {
+        int amountItemToRemove = curItemsOnScreen.Count / 2;
+        for(int i = 0; i< amountItemToRemove; i++)
+        {
+            var itemToRemoveInList = curItemsOnScreen[i];
+            Destroy(itemToRemoveInList);
+            curItemsOnScreen.RemoveAt(0);
+        }
+    }
 }
